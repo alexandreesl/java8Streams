@@ -26,21 +26,21 @@ public class CollectionUtils {
 		order = new Order();
 
 		order.setDescription("description 1");
-		order.setId(1);
+		order.setId(1l);
 		order.setTotal(32.33);
 		orders.add(order);
 
 		order = new Order();
 
 		order.setDescription("description 2");
-		order.setId(2);
+		order.setId(2l);
 		order.setTotal(42.33);
 		orders.add(order);
 
 		order = new Order();
 
 		order.setDescription("description 3");
-		order.setId(3);
+		order.setId(3l);
 		order.setTotal(72.54);
 		orders.add(order);
 
@@ -59,21 +59,21 @@ public class CollectionUtils {
 		order = new Order();
 
 		order.setDescription("description 4");
-		order.setId(4);
+		order.setId(4l);
 		order.setTotal(52.33);
 		orders.add(order);
 
 		order = new Order();
 
 		order.setDescription("description 2");
-		order.setId(5);
+		order.setId(5l);
 		order.setTotal(102.33);
 		orders.add(order);
 
 		order = new Order();
 
 		order.setDescription("description 5");
-		order.setId(6);
+		order.setId(6l);
 		order.setTotal(12.54);
 		orders.add(order);
 
@@ -92,21 +92,21 @@ public class CollectionUtils {
 		order = new Order();
 
 		order.setDescription("description 6");
-		order.setId(7);
+		order.setId(7l);
 		order.setTotal(12.43);
 		orders.add(order);
 
 		order = new Order();
 
 		order.setDescription("description 7");
-		order.setId(8);
+		order.setId(8l);
 		order.setTotal(98.11);
 		orders.add(order);
 
 		order = new Order();
 
 		order.setDescription("description 8");
-		order.setId(9);
+		order.setId(9l);
 		order.setTotal(130.22);
 		orders.add(order);
 

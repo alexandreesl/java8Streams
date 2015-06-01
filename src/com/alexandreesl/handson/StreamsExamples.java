@@ -3,13 +3,16 @@ package com.alexandreesl.handson;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StreamsExample {
+public class StreamsExamples {
 
 	public static void main(String[] args) {
 
 		List<Client> clients = CollectionUtils.getData();
 
 		// for each that doesn't use the stream
+
+		System.out.println("FOR EACH WITHOUT THE STREAM!");
+
 		clients.stream().filter(
 				c -> c.getName().equals("Alexandre Eleuterio Santos Lourenco"));
 
@@ -45,6 +48,17 @@ public class StreamsExample {
 						.filter(o -> o.getTotal() > 90)
 						.collect(Collectors.toList()).isEmpty() != true)
 				.map(Client::getName).forEach(System.out::println);
+
+		// stream geting the max value from the orders
+
+		System.out.println("RETRIEVING THE NAME AND HIGHEST TOTAL!");
+
+		clients.stream().forEach(
+				c -> System.out.println("Name: "
+						+ c.getName()
+						+ " Highest Order Total: "
+						+ c.getOrders().stream().mapToDouble(Order::getTotal)
+								.max().orElse(0)));
 
 	}
 }

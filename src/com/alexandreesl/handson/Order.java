@@ -2,17 +2,17 @@ package com.alexandreesl.handson;
 
 public class Order {
 
-	private long id;
+	private Long id;
 
 	private String description;
 
-	private double total;
+	private Double total;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -24,11 +24,11 @@ public class Order {
 		this.description = description;
 	}
 
-	public double getTotal() {
+	public Double getTotal() {
 		return total;
 	}
 
-	public void setTotal(double total) {
+	public void setTotal(Double total) {
 		this.total = total;
 	}
 
