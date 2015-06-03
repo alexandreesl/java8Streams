@@ -3,7 +3,7 @@ package com.alexandreesl.handson;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StreamsExamples {
+public class StreamsShowcase {
 
 	public static void main(String[] args) {
 
@@ -45,9 +45,8 @@ public class StreamsExamples {
 
 		clients.stream()
 				.filter(c -> c.getOrders().stream()
-						.filter(o -> o.getTotal() > 90)
-						.collect(Collectors.toList()).isEmpty() != true)
-				.map(Client::getName).forEach(System.out::println);
+						.anyMatch(o -> o.getTotal() > 90)).map(Client::getName)
+				.forEach(System.out::println);
 
 		// stream geting the max value from the orders
 
@@ -59,6 +58,43 @@ public class StreamsExamples {
 						+ " Highest Order Total: "
 						+ c.getOrders().stream().mapToDouble(Order::getTotal)
 								.max().orElse(0)));
+
+		// streams using peek() to see what is happening
+
+		System.out.println("INSPECTING THE STREAM WITH PEEK!");
+
+		clients.stream()
+				.filter(c -> c.getName().equals(
+						"Alexandre Eleuterio Santos Lourenco"))
+				.peek(System.out::println);
+
+		System.out.println("*********** SECOND PEEK TEST ******************");
+
+		clients.stream()
+				.filter(c -> c.getName().equals(
+						"Alexandre Eleuterio Santos Lourenco"))
+				.peek(System.out::println)
+				.forEach(c -> System.out.println(c.getName()));
+
+		// stream with a custom reduce
+
+		System.out.println("STREAM WITH THE VALUES SUBTRACTED!");
+
+		clients.stream().forEach(
+				c -> System.out.println("Name: "
+						+ c.getName()
+						+ " TOTAL SUBTRACTED: "
+						+ c.getOrders().stream().mapToDouble(Order::getTotal)
+								.reduce(0, (a, b) -> a - b)));
+
+		// parallel streams
+
+		System.out.println("PARALLEL STREAMS!");
+
+		clients.parallelStream()
+				.filter(c -> c.getOrders().stream()
+						.anyMatch(o -> o.getTotal() > 90)).map(Client::getName)
+				.forEach(System.out::println);
 
 	}
 }
